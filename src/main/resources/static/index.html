@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taskly - Task Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header reveal">
+    <div class="brand-block">
+      <p class="eyebrow">Taskly</p>
+      <h1>Taskly</h1>
+      <p class="subtitle">Your personal task manager — fast, secure, beautifully clear.</p>
+    </div>
+    <div class="header-actions">
+      <div class="status-chip" id="authStatus">Not logged in</div>
+      <button id="logoutBtn" class="btn ghost header-logout" type="button" style="display:none">Logout</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="form-scroll-stack">
+      <section class="card form-card" id="registerCard">
+        <h2>Register</h2>
+        <form id="registerForm" class="stack">
+          <label>Name<input required id="regName" type="text" placeholder="Your name" /></label>
+          <label>Email<input required id="regEmail" type="email" placeholder="you@example.com" /></label>
+          <label>Password<input required id="regPassword" type="password" placeholder="At least 6 chars" /></label>
+          <button type="submit" class="btn primary">Create Account</button>
+        </form>
+      </section>
+
+      <section class="card form-card" id="loginCard">
+        <h2>Login</h2>
+        <form id="loginForm" class="stack">
+          <label>Email<input required id="loginEmail" type="email" placeholder="you@example.com" /></label>
+          <label>Password<input required id="loginPassword" type="password" placeholder="Your password" /></label>
+          <button type="submit" class="btn primary">Sign In</button>
+        </form>
+      </section>
+
+      <section class="card form-card" id="taskControlsCard">
+        <h2>Task Controls</h2>
+        <div class="stack">
+          <label>User ID<input required id="userId" type="number" placeholder="Example: 1" /></label>
+          <button id="loadTasksBtn" class="btn secondary" type="button">Load All Tasks</button>
+        </div>
+        <hr />
+        <form id="addTaskForm" class="stack">
+          <label>Task Name<input required id="taskName" type="text" placeholder="Ship responsive frontend" /></label>
+          <button type="submit" class="btn primary">Add Task</button>
+        </form>
+        <hr />
+        <form id="findTaskForm" class="inline-form">
+          <input required id="findTaskId" type="number" placeholder="Task ID" />
+          <button type="submit" class="btn ghost">Find Task</button>
+        </form>
+        <form id="deleteTaskForm" class="inline-form">
+          <input required id="deleteTaskId" type="number" placeholder="Task ID" />
+          <button type="submit" class="btn danger">Delete Task</button>
+        </form>
+      </section>
+    </div>
+
+    <section class="card wide reveal" id="tasksPanel" style="--delay: 340ms">
+      <div class="panel-head">
+        <h2 id="tasksHeading">Tasks</h2>
+        <span id="taskCount" class="pill">0 items</span>
+      </div>
+      <ul id="taskList" class="task-list"></ul>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
